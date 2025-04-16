@@ -1,0 +1,254 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #0f0e1a;
+    color: white;
+    overflow-x: hidden;
+    position: relative;
+    min-height: 100vh;
+    text-align: center;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('https://i.imgur.com/JqYeZvn.png') center/cover no-repeat;
+    opacity: 0.15;
+    z-index: -1;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.logo {
+    font-size: 28px;
+    font-weight: bold;
+    color: #ff4d89;
+    text-shadow: 0 0 10px rgba(255, 77, 137, 0.5);
+    padding: 20px 0;
+    text-align: center;
+    width: 100%;
+}
+
+.main-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+    width: 100%;
+}
+
+.text-content {
+    width: 100%;
+    text-align: center;
+    padding: 0 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    background: linear-gradient(to right, #ff4d89, #ff9a5a);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    line-height: 1.2;
+    animation: pulse 2s infinite;
+    text-align: center;
+    max-width: 800px;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.03); }
+    100% { transform: scale(1); }
+}
+
+p {
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+    color: #d1d1d1;
+    max-width: 600px;
+    text-align: center;
+}
+
+.highlight {
+    color: #ff4d89;
+    font-weight: bold;
+}
+
+.bonus-box {
+    background: rgba(20, 20, 40, 0.8);
+    border: 2px solid #ff4d89;
+    border-radius: 15px;
+    padding: 20px;
+    margin: 30px auto;
+    text-align: center;
+    max-width: 500px;
+    backdrop-filter: blur(5px);
+    box-shadow: 0 10px 25px rgba(255, 77, 137, 0.2);
+    animation: glow 3s infinite alternate;
+    width: 100%;
+}
+
+@keyframes glow {
+    from {
+        box-shadow: 0 0 10px rgba(255, 77, 137, 0.5);
+    }
+    to {
+        box-shadow: 0 0 20px rgba(255, 77, 137, 0.8);
+    }
+}
+
+.countdown {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin: 20px 0;
+    color: #ffeb3b;
+    font-family: 'Digital', monospace;
+    text-shadow: 0 0 10px rgba(255, 235, 59, 0.7);
+    text-align: center;
+}
+
+.cta-button {
+    background: linear-gradient(45deg, #ff4d89, #ff9a5a);
+    color: white;
+    border: none;
+    padding: 18px 45px;
+    font-size: 1.2rem;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s;
+    box-shadow: 0 5px 20px rgba(255, 77, 137, 0.5);
+    text-transform: uppercase;
+    font-weight: bold;
+    margin: 20px auto;
+    display: block;
+    width: fit-content;
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+}
+
+.cta-button::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+        to bottom right,
+        rgba(255,255,255,0) 0%,
+        rgba(255,255,255,0) 45%,
+        rgba(255,255,255,0.5) 48%,
+        rgba(255,255,255,0) 51%,
+        rgba(255,255,255,0) 100%
+    );
+    transform: rotate(30deg);
+    animation: shine 3s infinite;
+}
+
+@keyframes shine {
+    0% { transform: translateX(-100%) rotate(30deg); }
+    20% { transform: translateX(100%) rotate(30deg); }
+    100% { transform: translateX(100%) rotate(30deg); }
+}
+
+.cta-button:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(255, 77, 137, 0.7);
+}
+
+.plinko-container {
+    width: 100%;
+    max-width: 500px;
+    margin: 30px auto;
+    position: relative;
+    height: 300px;
+    overflow: hidden;
+}
+
+.ball {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: radial-gradient(circle at 30% 30%, #fff, #ff4d89);
+    border-radius: 50%;
+    box-shadow: 0 0 10px #ff4d89;
+    z-index: 10;
+    animation: drop 3s infinite;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+@keyframes drop {
+    0% { top: 0; opacity: 1; }
+    80% { opacity: 1; }
+    100% { top: 100%; opacity: 0; }
+}
+
+.pegs {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: url('https://i.imgur.com/JqYeZvn.png') center/contain no-repeat;
+    opacity: 0.7;
+}
+
+footer {
+    text-align: center;
+    margin-top: 50px;
+    padding: 20px;
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.5);
+    width: 100%;
+}
+
+/* Falling coins animation */
+.coin {
+    position: fixed;
+    width: 30px;
+    height: 30px;
+    background: radial-gradient(circle at 30% 30%, #fff, #ffeb3b);
+    border-radius: 50%;
+    box-shadow: 0 0 10px #ffeb3b;
+    z-index: -1;
+    animation: falling linear infinite;
+}
+
+@keyframes falling {
+    to {
+        transform: translateY(100vh) rotate(360deg);
+    }
+}
+
+/* Mobile Responsiveness */
+@media (min-width: 768px) {
+    h1 {
+        font-size: 3.5rem;
+    }
+    
+    .plinko-container {
+        height: 400px;
+    }
+}
